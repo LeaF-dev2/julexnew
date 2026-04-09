@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Statuten – SVJ Julex</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="assets/style.css"/>
+  <style>
+    .statute-chapter {
+      margin-bottom: 2.5rem;
+    }
+    .statute-chapter-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.8rem;
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .statute-article {
+      margin-bottom: 1.25rem;
+    }
+    .statute-article-num {
+      font-weight: 600;
+      color: var(--navy);
+      font-size: 0.92rem;
+      margin-bottom: 0.35rem;
+    }
+    .statute-article p {
+      font-size: 0.95rem;
+      color: var(--text-mid);
+      line-height: 1.8;
+    }
+    .download-box {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      text-decoration: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      color: var(--text);
+    }
+    .download-box:hover {
+      border-color: var(--gold);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+    }
+    .download-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--gold-pale);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+  <div class="navbar-inner">
+    <a href="index.html" class="nav-logo"><img src="ImagesJulex/logo-julex.gif" alt="SVJ / SSDPM"/></a>
+    <div class="nav-menu">
+      <div class="nav-item"><button class="active-page">SVJ <svg class="nav-chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4l4 4 4-4"/></svg></button><div class="dropdown"><a href="svj-vorstand.html">Unser Vorstand</a><a href="svj-aufgabe.html">Aufgabe</a><a href="svj-mitgliedschaft.html">Mitgliedschaft</a><a href="svj-statuten.html">Statuten</a><a href="svj-fonds.html">Fonds</a></div></div>
+      <div class="nav-item"><button>Tagungen <svg class="nav-chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4l4 4 4-4"/></svg></button><div class="dropdown"><a href="tagung-2026.html">Tagung 2026</a><a href="tagung-archiv.html">Frühere Tagungen</a></div></div>
+      <div class="nav-item"><button>Jugendstrafrecht <svg class="nav-chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4l4 4 4-4"/></svg></button><div class="dropdown"><a href="jugendstrafrecht.html">Übersicht</a><a href="jugendstrafrecht-behoerden.html">Behörden</a><a href="jugendstrafrecht-praxis.html">Praxis</a></div></div>
+      <div class="nav-item"><button>Dienstleistungen <svg class="nav-chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4l4 4 4-4"/></svg></button><div class="dropdown"><a href="dienste-dokumente.html">Dokumente</a><a href="dienste-links.html">Links</a><a href="kontakt.html">Kontakt</a></div></div>
+    </div>
+    <div class="nav-right">
+      <div class="lang-switcher"><button class="lang-btn active">DE</button><button class="lang-btn">FR</button></div>
+      <a href="#" class="btn-login">Mitglieder-Login</a>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="nav-mobile-overlay" id="navOverlay">
+  <div class="mobile-nav-section"><div class="mobile-nav-heading">SVJ</div><div class="mobile-nav-links"><a href="svj-vorstand.html">Unser Vorstand</a><a href="svj-aufgabe.html">Aufgabe</a><a href="svj-mitgliedschaft.html">Mitgliedschaft</a><a href="svj-statuten.html">Statuten</a><a href="svj-fonds.html">Fonds</a></div></div>
+  <div class="mobile-nav-section"><div class="mobile-nav-heading">Tagungen</div><div class="mobile-nav-links"><a href="tagung-2026.html">Tagung 2026</a><a href="tagung-archiv.html">Frühere Tagungen</a></div></div>
+  <div class="mobile-nav-section"><div class="mobile-nav-heading">Jugendstrafrecht</div><div class="mobile-nav-links"><a href="jugendstrafrecht.html">Übersicht</a><a href="jugendstrafrecht-behoerden.html">Behörden</a><a href="jugendstrafrecht-praxis.html">Praxis</a></div></div>
+  <div class="mobile-nav-section"><div class="mobile-nav-heading">Dienstleistungen</div><div class="mobile-nav-links"><a href="dienste-dokumente.html">Dokumente</a><a href="dienste-links.html">Links</a><a href="kontakt.html">Kontakt</a></div></div>
+  <div class="mobile-nav-footer"><div class="lang-switcher"><button class="lang-btn active">DE</button><button class="lang-btn">FR</button></div><a href="#" class="btn-login" style="margin-left:12px;">Login</a></div>
+</div>
+
+<div class="page-hero">
+  <div class="page-hero-img" style="background-image:url('ImagesJulex/tingey-injury-law-firm-NcNqTsq-UVY-unsplash.jpg');"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-gold-line"></div>
+  <div class="page-hero-inner">
+    <div class="page-hero-breadcrumb"><a href="index.html">Home</a><span>›</span><span>SVJ</span><span>›</span><span>Statuten</span></div>
+    <span class="page-hero-label">SVJ</span>
+    <h1>Statuten</h1>
+  </div>
+</div>
+
+<section class="content-section bg-white">
+  <div class="content-inner">
+    <div class="layout-sidebar">
+      <div class="sidebar">
+        <div class="sidebar-menu">
+          <div class="sidebar-menu-title">SVJ</div>
+          <a href="svj-vorstand.html">Unser Vorstand</a>
+          <a href="svj-aufgabe.html">Aufgabe</a>
+          <a href="svj-mitgliedschaft.html">Mitgliedschaft</a>
+          <a href="svj-statuten.html" class="active-page">Statuten</a>
+          <a href="svj-fonds.html">Fonds</a>
+        </div>
+      </div>
+      <div class="main-content">
+
+        <div class="reveal">
+          <h2 style="font-size:1.7rem;color:var(--navy);margin-bottom:0.75rem;">Statuten der SVJ</h2>
+          <p style="font-size:0.95rem;color:var(--text-light);margin-bottom:2rem;">Schweizerische Vereinigung für Jugendstrafrechtspflege</p>
+        </div>
+
+        <!-- Download Box -->
+        <div class="reveal" style="margin-bottom:2.5rem;">
+          <a href="assets/statuten-svj.pdf" class="download-box">
+            <div class="download-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="12" y2="18"/><line x1="15" y1="15" x2="12" y2="18"/></svg>
+            </div>
+            <div>
+              <div style="font-weight:600;font-size:0.95rem;color:var(--navy);margin-bottom:0.2rem;">Statuten SVJ (PDF)</div>
+              <div style="font-size:0.82rem;color:var(--text-light);">Vollständige Statuten als PDF herunterladen</div>
+            </div>
+            <div style="margin-left:auto;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </div>
+          </a>
+        </div>
+
+        <!-- Statutes Content -->
+        <div class="reveal">
+          <div class="statute-chapter">
+            <div class="statute-chapter-title">I. Name und Sitz der Vereinigung</div>
+            <div class="statute-article">
+              <div class="statute-article-num">Art. 1 — Name und Sitz</div>
+              <p>Unter dem Namen «Schweizerische Vereinigung für Jugendstrafrechtspflege» (SVJ) besteht mit Sitz am jeweiligen Geschäftsdomizil der Präsidentin/des Präsidenten ein Verein im Sinne von Art. 60 des Schweizerischen Zivilgesetzbuches.</p>
+            </div>
+          </div>
+
+          <div class="statute-chapter">
+            <div class="statute-chapter-title">II. Zweck</div>
+            <div class="statute-article">
+              <div class="statute-article-num">Art. 2 — Vereinszweck</div>
+              <p>Zweck der Vereinigung ist die Weiterentwicklung des Jugendstrafrechtes und des Jugendstrafprozessrechtes, die Förderung einer einheitlichen Rechtsanwendung sowie die Unterstützung der mit dem Vollzug beauftragten Institutionen. Die Vereinigung nimmt Einfluss auf die Umsetzung der leitenden Grundsätze des Jugendstrafrechtes.</p>
+            </div>
+            <div class="statute-article">
+              <div class="statute-article-num">Art. 3 — Tätigkeiten</div>
+              <p>Die Vereinigung befasst sich mit allen Erscheinungsformen der Jugendkriminalität und den ihr zugrunde liegenden Jugendproblemen. Sie setzt sich insbesondere für die Weiterentwicklung der Jugendstrafgesetzgebung sowie die Verbesserung der Jugendstrafrechtspflege und ihrer Vollzugseinrichtungen ein. Sie befasst sich mit Fragen im Zusammenhang mit Jugendkriminalität, insbesondere durch Organisation von Fachveranstaltungen.</p>
+            </div>
+          </div>
+
+          <div class="statute-chapter">
+            <div class="statute-chapter-title">III. Mitgliedschaft</div>
+            <div class="statute-article">
+              <div class="statute-article-num">Art. 4 — Mitglieder</div>
+              <p>Mitglieder der Vereinigung können natürliche und juristische Personen werden, die sich für die Ziele der Vereinigung einsetzen. Es wird zwischen Einzelmitgliedern und Kollektivmitgliedern unterschieden.</p>
+            </div>
+            <div class="statute-article">
+              <div class="statute-article-num">Art. 5 — Aufnahme</div>
+              <p>Die Aufnahme von Mitgliedern erfolgt durch den Vorstand. Die Mitgliedschaft beginnt mit der Entrichtung des ersten Jahresbeitrages. Ein Aufnahmeverfahren kann schriftlich per Beitrittsgesuch eingeleitet werden.</p>
+            </div>
+            <div class="statute-article">
+              <div class="statute-article-num">Art. 6 — Austritt und Ausschluss</div>
+              <p>Der Austritt aus der Vereinigung ist jederzeit möglich. Er ist dem Vorstand schriftlich mitzuteilen. Ein Mitglied kann aus der Vereinigung ausgeschlossen werden, wenn es den Interessen der Vereinigung zuwiderhandelt oder seinen Verpflichtungen gegenüber der Vereinigung nicht nachkommt.</p>
+            </div>
+          </div>
+
+          <div class="statute-chapter">
+            <div class="statute-chapter-title">IV. Organe</div>
+            <div class="statute-article">
+              <div class="statute-article-num">Art. 7 — Organe der Vereinigung</div>
+              <p>Die Organe der Vereinigung sind die Generalversammlung und der Vorstand.</p>
+            </div>
+            <div class="statute-article">
+              <div class="statute-article-num">Art. 8 — Generalversammlung</div>
+              <p>Die Generalversammlung ist das oberste Organ der Vereinigung. Sie tritt mindestens einmal jährlich zusammen. Die Einladung erfolgt mindestens 30 Tage im Voraus. Die Generalversammlung beschliesst über die Genehmigung des Jahresberichts und der Jahresrechnung, über die Entlastung des Vorstandes, über die Wahl des Vorstandes sowie über Statutenänderungen.</p>
+            </div>
+            <div class="statute-article">
+              <div class="statute-article-num">Art. 9 — Vorstand</div>
+              <p>Der Vorstand führt die Geschäfte der Vereinigung und vertritt sie nach aussen. Er besteht aus mindestens fünf Mitgliedern, die von der Generalversammlung für eine Amtsdauer von zwei Jahren gewählt werden. Wiederwahl ist möglich. Der Vorstand konstituiert sich selbst.</p>
+            </div>
+          </div>
+
+          <div class="statute-chapter">
+            <div class="statute-chapter-title">V. Finanzen</div>
+            <div class="statute-article">
+              <div class="statute-article-num">Art. 10 — Beiträge</div>
+              <p>Die Mitgliederbeiträge werden durch den Vorstand festgesetzt. Das Geschäftsjahr entspricht dem Kalenderjahr. Die Vereinigung haftet für ihre Verbindlichkeiten ausschliesslich mit ihrem Vereinsvermögen.</p>
+            </div>
+          </div>
+
+          <div class="statute-chapter">
+            <div class="statute-chapter-title">VI. Schlussbestimmungen</div>
+            <div class="statute-article">
+              <div class="statute-article-num">Art. 11 — Auflösung</div>
+              <p>Die Auflösung der Vereinigung kann von einer ausserordentlichen Generalversammlung mit Zweidrittelmehrheit der anwesenden Stimmberechtigten beschlossen werden. Bei Auflösung der Vereinigung fällt das Vereinsvermögen an eine oder mehrere gemeinnützige Organisationen, die ähnliche Zwecke verfolgen.</p>
+            </div>
+            <div class="statute-article">
+              <div class="statute-article-num">Art. 12 — Inkrafttreten</div>
+              <p>Diese Statuten wurden anlässlich der Generalversammlung verabschiedet und ersetzen alle früheren Statuten. Sie treten mit der Genehmigung durch die Generalversammlung in Kraft.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Second Download -->
+        <div class="reveal" style="margin-top:2rem;padding:1.5rem 2rem;background:var(--bg);border-radius:8px;border:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+          <div>
+            <div style="font-weight:600;color:var(--navy);font-size:0.95rem;margin-bottom:0.2rem;">Vollständige Statuten als PDF</div>
+            <div style="font-size:0.85rem;color:var(--text-light);">Offizielle Fassung der Statuten der SVJ</div>
+          </div>
+          <a href="assets/statuten-svj.pdf" style="display:inline-flex;align-items:center;gap:0.5rem;background:var(--navy);color:white;padding:0.65rem 1.25rem;border-radius:4px;text-decoration:none;font-weight:600;font-size:0.87rem;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            PDF herunterladen
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top"><div class="footer-inner"><div class="footer-grid">
+    <div>
+      <div class="footer-brand-name">SVJ / SSDPM</div>
+      <p class="footer-desc">Schweizerische Vereinigung für Jugendstrafrechtspflege — gegründet 1931.</p>
+      <div class="footer-contact">
+        <div class="footer-contact-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="13" height="13"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Patrik Killer, Präsident SVJ<br/>Josefstrasse 59, Postfach, 8005 Zürich</span></div>
+        <div class="footer-contact-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="13" height="13"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.62 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l.77-.77a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>043 285 38 38</span></div>
+        <div class="footer-contact-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="13" height="13"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span>info@julex.ch</span></div>
+      </div>
+    </div>
+    <div><div class="footer-col-title">SVJ</div><div class="footer-links"><a href="svj-vorstand.html">Vorstand</a><a href="svj-aufgabe.html">Aufgabe</a><a href="svj-mitgliedschaft.html">Mitgliedschaft</a><a href="svj-statuten.html">Statuten</a><a href="svj-fonds.html">Fonds</a></div></div>
+    <div><div class="footer-col-title">Tagungen</div><div class="footer-links"><a href="tagung-2026.html">Tagung 2026</a><a href="tagung-archiv.html">Frühere Tagungen</a></div></div>
+    <div><div class="footer-col-title">Dienste</div><div class="footer-links"><a href="jugendstrafrecht.html">Jugendstrafrecht</a><a href="dienste-dokumente.html">Dokumente</a><a href="dienste-links.html">Links</a><a href="kontakt.html">Kontakt</a></div></div>
+  </div></div></div>
+  <div class="footer-bottom"><div class="footer-bottom-inner">
+    <div class="footer-copy">© 2026 Schweizerische Vereinigung für Jugendstrafrechtspflege (SVJ)</div>
+    <div class="footer-bottom-links"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a><a href="kontakt.html">Kontakt</a></div>
+  </div></div>
+</footer>
+<script>
+const obs = new IntersectionObserver(e => e.forEach(el => { if(el.isIntersecting) el.target.classList.add('visible'); }), {threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+const burger = document.getElementById('navHamburger');
+const overlay = document.getElementById('navOverlay');
+if(burger) burger.addEventListener('click', () => {
+  const open = overlay.classList.toggle('open');
+  burger.classList.toggle('open', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+});
+if(overlay) overlay.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  overlay.classList.remove('open'); burger.classList.remove('open'); document.body.style.overflow = '';
+}));
+</script>
+</body>
+</html>

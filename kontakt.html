@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kontakt – SVJ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="assets/style.css"/>
+  <style>
+    .contact-intro {
+      font-size: 17px;
+      color: var(--text-mid);
+      line-height: 1.75;
+      margin-bottom: 40px;
+      max-width: 700px;
+    }
+    .contact-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 36px;
+    }
+    .contact-card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 28px;
+      padding-bottom: 14px;
+      border-bottom: 2px solid var(--border);
+    }
+    .form-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 36px;
+    }
+    .form-card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 28px;
+      padding-bottom: 14px;
+      border-bottom: 2px solid var(--border);
+    }
+    .optional-label {
+      font-size: 11px;
+      font-weight: 400;
+      color: var(--text-light);
+      margin-left: 6px;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+  <div class="navbar-inner">
+    <a href="index.html" class="nav-logo"><img src="ImagesJulex/logo-julex.gif" alt="SVJ / SSDPM"/></a>
+    <div class="nav-menu">
+      <div class="nav-item"><button>SVJ <svg class="nav-chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4l4 4 4-4"/></svg></button><div class="dropdown"><a href="svj-vorstand.html">Unser Vorstand</a><a href="svj-aufgabe.html">Aufgabe</a><a href="svj-mitgliedschaft.html">Mitgliedschaft</a><a href="svj-statuten.html">Statuten</a><a href="svj-fonds.html">Fonds</a></div></div>
+      <div class="nav-item"><button>Tagungen <svg class="nav-chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4l4 4 4-4"/></svg></button><div class="dropdown"><a href="tagung-2026.html">Tagung 2026</a><a href="tagung-archiv.html">Frühere Tagungen</a></div></div>
+      <div class="nav-item"><button>Jugendstrafrecht <svg class="nav-chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4l4 4 4-4"/></svg></button><div class="dropdown"><a href="jugendstrafrecht.html">Übersicht</a><a href="jugendstrafrecht-behoerden.html">Behörden</a><a href="jugendstrafrecht-praxis.html">Praxis</a></div></div>
+      <div class="nav-item"><button class="active-page">Dienstleistungen <svg class="nav-chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4l4 4 4-4"/></svg></button><div class="dropdown"><a href="dienste-dokumente.html">Dokumente</a><a href="dienste-links.html">Links</a><a href="kontakt.html">Kontakt</a></div></div>
+    </div>
+    <div class="nav-right">
+      <div class="lang-switcher"><button class="lang-btn active">DE</button><button class="lang-btn">FR</button></div>
+      <a href="#" class="btn-login">Mitglieder-Login</a>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="nav-mobile-overlay" id="navOverlay">
+  <div class="mobile-nav-section"><div class="mobile-nav-heading">SVJ</div><div class="mobile-nav-links"><a href="svj-vorstand.html">Unser Vorstand</a><a href="svj-aufgabe.html">Aufgabe</a><a href="svj-mitgliedschaft.html">Mitgliedschaft</a><a href="svj-statuten.html">Statuten</a><a href="svj-fonds.html">Fonds</a></div></div>
+  <div class="mobile-nav-section"><div class="mobile-nav-heading">Tagungen</div><div class="mobile-nav-links"><a href="tagung-2026.html">Tagung 2026</a><a href="tagung-archiv.html">Frühere Tagungen</a></div></div>
+  <div class="mobile-nav-section"><div class="mobile-nav-heading">Jugendstrafrecht</div><div class="mobile-nav-links"><a href="jugendstrafrecht.html">Übersicht</a><a href="jugendstrafrecht-behoerden.html">Behörden</a><a href="jugendstrafrecht-praxis.html">Praxis</a></div></div>
+  <div class="mobile-nav-section"><div class="mobile-nav-heading">Dienstleistungen</div><div class="mobile-nav-links"><a href="dienste-dokumente.html">Dokumente</a><a href="dienste-links.html">Links</a><a href="kontakt.html">Kontakt</a></div></div>
+  <div class="mobile-nav-footer"><div class="lang-switcher"><button class="lang-btn active">DE</button><button class="lang-btn">FR</button></div><a href="#" class="btn-login" style="margin-left:12px;">Login</a></div>
+</div>
+
+<div class="page-hero">
+  <div class="page-hero-img" style="background-image:url('ImagesJulex/pexels-rodnae-productions-7841804.jpg');"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-gold-line"></div>
+  <div class="page-hero-inner">
+    <div class="page-hero-breadcrumb"><a href="index.html">Home</a><span>›</span><span>Dienstleistungen</span><span>›</span><span>Kontakt</span></div>
+    <span class="page-hero-label">Dienstleistungen</span>
+    <h1>Kontakt</h1>
+  </div>
+</div>
+
+<section class="content-section bg-white">
+  <div class="content-inner">
+
+    <p class="contact-intro reveal">Haben Sie Fragen zur SVJ, zur Mitgliedschaft oder zu einer Tagung? Kontaktieren Sie uns gerne.</p>
+
+    <div class="contact-grid reveal">
+
+      <!-- Left: Contact info -->
+      <div class="contact-card">
+        <div class="contact-card-title">Kontaktangaben</div>
+        <div class="contact-info-block">
+          <div class="contact-info-item">
+            <div class="contact-info-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div class="contact-info-label">Adresse</div>
+              <div class="contact-info-value">Patrik Killer, Präsident SVJ</div>
+              <div class="contact-info-sub">Jugendanwaltschaft Stadt Zürich<br/>Josefstrasse 59, Postfach<br/>8005 Zürich</div>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.82a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <div class="contact-info-label">Telefon</div>
+              <div class="contact-info-value">043 285 38 38</div>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <div class="contact-info-label">E-Mail</div>
+              <div class="contact-info-value"><a href="mailto:kanzlei.jugastadtzuerich@ji.zh.ch" style="color:var(--navy);text-decoration:none;">kanzlei.jugastadtzuerich@ji.zh.ch</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Contact form -->
+      <div class="form-card">
+        <div class="form-card-title">Nachricht senden</div>
+        <form action="#" method="post" novalidate>
+          <div class="form-field">
+            <label for="anrede">Anrede</label>
+            <select id="anrede" name="anrede">
+              <option value="">Bitte wählen</option>
+              <option value="frau">Frau</option>
+              <option value="herr">Herr</option>
+              <option value="divers">Divers</option>
+              <option value="keine">Keine Angabe</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="vorname">Vorname</label>
+              <input type="text" id="vorname" name="vorname" autocomplete="given-name" required/>
+            </div>
+            <div class="form-field">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" autocomplete="family-name" required/>
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="institution">Institution</label>
+            <input type="text" id="institution" name="institution" autocomplete="organization"/>
+          </div>
+          <div class="form-field">
+            <label for="email">E-Mail</label>
+            <input type="email" id="email" name="email" autocomplete="email" required/>
+          </div>
+          <div class="form-field">
+            <label for="telefon">Telefon <span class="optional-label">(optional)</span></label>
+            <input type="tel" id="telefon" name="telefon" autocomplete="tel"/>
+          </div>
+          <div class="form-field">
+            <label for="betreff">Betreff</label>
+            <select id="betreff" name="betreff" required>
+              <option value="">Bitte wählen</option>
+              <option value="mitgliedschaft">Mitgliedschaft</option>
+              <option value="tagung">Tagung</option>
+              <option value="jugendstrafrecht">Jugendstrafrecht</option>
+              <option value="allgemein">Allgemeine Anfrage</option>
+              <option value="sonstiges">Sonstiges</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="nachricht">Nachricht</label>
+            <textarea id="nachricht" name="nachricht" required placeholder="Ihr Anliegen..."></textarea>
+          </div>
+          <button type="submit" class="btn-navy">Nachricht senden</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer><div class="footer-top"><div class="footer-inner"><div class="footer-grid">
+  <div><div class="footer-brand-name">SVJ / SSDPM</div><p class="footer-desc">Schweizerische Vereinigung für Jugendstrafrechtspflege — gegründet 1931.</p><div class="footer-contact"><div class="footer-contact-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="13" height="13"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Patrik Killer, Präsident SVJ<br/>Josefstrasse 59, Postfach, 8005 Zürich</span></div><div class="footer-contact-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="13" height="13"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span>info@julex.ch</span></div></div></div>
+  <div><div class="footer-col-title">SVJ</div><div class="footer-links"><a href="svj-vorstand.html">Vorstand</a><a href="svj-aufgabe.html">Aufgabe</a><a href="svj-mitgliedschaft.html">Mitgliedschaft</a><a href="svj-statuten.html">Statuten</a></div></div>
+  <div><div class="footer-col-title">Tagungen</div><div class="footer-links"><a href="tagung-2026.html">Tagung 2026</a><a href="tagung-archiv.html">Frühere Tagungen</a></div></div>
+  <div><div class="footer-col-title">Dienste</div><div class="footer-links"><a href="jugendstrafrecht.html">Jugendstrafrecht</a><a href="dienste-dokumente.html">Dokumente</a><a href="dienste-links.html">Links</a><a href="kontakt.html">Kontakt</a></div></div>
+</div></div></div>
+<div class="footer-bottom"><div class="footer-bottom-inner"><div class="footer-copy">© 2026 SVJ Schweizerische Vereinigung für Jugendstrafrechtspflege</div><div class="footer-bottom-links"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a><a href="kontakt.html">Kontakt</a></div></div></div></footer>
+<script>
+const obs = new IntersectionObserver(e => e.forEach(el => { if(el.isIntersecting) el.target.classList.add('visible'); }), {threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+const burger = document.getElementById('navHamburger');
+const overlay = document.getElementById('navOverlay');
+if(burger) burger.addEventListener('click', () => {
+  const open = overlay.classList.toggle('open');
+  burger.classList.toggle('open', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+});
+if(overlay) overlay.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  overlay.classList.remove('open'); burger.classList.remove('open'); document.body.style.overflow = '';
+}));
+</script>
+</body>
+</html>

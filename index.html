@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SVJ / SSDPM – Schweizerische Vereinigung für Jugendstrafrechtspflege</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="assets/style.css"/>
+  <style>
+    /* ── HOME HERO ── */
+    .home-hero {
+      position: relative; min-height: 600px;
+      display: flex; align-items: center;
+      background: var(--navy-dark); overflow: hidden;
+    }
+    .home-hero-bg {
+      position: absolute; inset: 0;
+      background-image: url('ImagesJulex/giammarco-zeH-ljawHtg-unsplash.jpg');
+      background-size: cover; background-position: center 30%;
+      opacity: 0.22; filter: grayscale(15%);
+    }
+    .home-hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(105deg, rgba(10,25,52,0.97) 0%, rgba(19,46,94,0.88) 50%, rgba(19,46,94,0.6) 100%);
+    }
+    .home-hero-gold-line { position: absolute; bottom: 0; left: 0; right: 0; height: 4px; background: var(--gold); }
+    .home-hero-inner {
+      position: relative; z-index: 1;
+      max-width: 1280px; margin: 0 auto; padding: 80px 28px;
+      display: grid; grid-template-columns: 1fr 300px; gap: 60px; align-items: center;
+    }
+    .hero-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--gold-light); margin-bottom: 18px; }
+    .hero-title { font-family: 'Playfair Display', serif; font-size: clamp(32px, 4.2vw, 54px); font-weight: 700; color: white; line-height: 1.15; letter-spacing: -0.5px; margin-bottom: 20px; }
+    .hero-rule { width: 60px; height: 3px; background: var(--gold); margin-bottom: 22px; }
+    .hero-desc { font-size: 17px; color: rgba(255,255,255,0.68); line-height: 1.8; font-weight: 300; max-width: 540px; margin-bottom: 36px; }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    /* Stats panel */
+    .hero-panel { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-top: 3px solid var(--gold); border-radius: 4px; padding: 28px 24px; }
+    .hero-panel-label { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold-light); margin-bottom: 20px; }
+    .hero-panel-stat { padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .hero-panel-stat:last-child { border-bottom: none; padding-bottom: 0; }
+    .hero-panel-num { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 700; color: white; line-height: 1; }
+    .hero-panel-num sup { font-size: 18px; color: var(--gold-light); }
+    .hero-panel-text { font-size: 12px; color: rgba(255,255,255,0.45); margin-top: 4px; }
+    @media (max-width: 1024px) {
+      .home-hero-inner { grid-template-columns: 1fr; }
+      .hero-panel { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+      .hero-panel-stat { border-bottom: none; border-right: 1px solid rgba(255,255,255,0.08); padding: 12px 20px; }
+      .hero-panel-stat:last-child { border-right: none; }
+    }
+
+    /* News */
+    .news-section { padding: 72px 28px; background: white; }
+    .news-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 36px; }
+    .news-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .news-card-compact { background: white; border: 1px solid var(--border); border-radius: 4px; overflow: hidden; display: flex; flex-direction: column; cursor: pointer; transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s; text-decoration: none; }
+    .news-card-compact:hover { border-color: var(--gold); box-shadow: 0 4px 20px rgba(0,0,0,0.07); transform: translateY(-2px); }
+    .news-card-compact .news-card-body { padding: 20px; }
+    .news-card-compact .news-card-date { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--gold); margin-bottom: 8px; }
+    .news-card-compact .news-card-title { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: var(--navy); line-height: 1.3; margin-bottom: 10px; }
+    .news-card-compact .news-card-excerpt { font-size: 13.5px; color: var(--text-mid); line-height: 1.65; margin-bottom: 16px; }
+    .news-card-compact .news-card-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: var(--navy); text-decoration: none; transition: gap 0.2s, color 0.2s; }
+    .news-card-compact .news-card-link:hover { color: var(--gold); gap: 10px; }
+    .news-card-compact .news-card-link svg { width: 13px; height: 13px; }
+    @media (max-width: 640px) { .news-grid-2 { grid-template-columns: 1fr; } }
+
+    /* Tagung dark section */
+    .tagung-inner { max-width: 1280px; margin: 0 auto; padding: 0 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
+
+    /* Aufgabe section */
+    .aufgabe-section { padding: 72px 28px; background: var(--bg); }
+    .aufgabe-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
+    .aufgabe-img { border-radius: 4px; overflow: hidden; position: relative; aspect-ratio: 4/3; }
+    .aufgabe-img img { width: 100%; height: 100%; object-fit: cover; }
+    .aufgabe-img-badge { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(10,25,52,0.9), transparent); padding: 28px 20px 16px; }
+    .aufgabe-img-badge-text { font-family: 'Playfair Display', serif; font-size: 15px; font-style: italic; color: rgba(255,255,255,0.8); line-height: 1.4; }
+    .point-card { display: flex; gap: 14px; align-items: flex-start; padding: 16px 0; border-bottom: 1px solid var(--border-light); }
+    .point-card:last-child { border-bottom: none; }
+    .point-icon { width: 38px; height: 38px; border-radius: 4px; background: var(--gold-pale); color: var(--gold); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .point-icon svg { width: 20px; height: 20px; }
+    .point-title { font-size: 15px; font-weight: 600; color: var(--navy); margin-bottom: 3px; }
+    .point-desc { font-size: 13px; color: var(--text-light); line-height: 1.6; }
+
+    /* JSR cards */
+    .jsr-section { padding: 72px 28px; background: white; }
+    .jsr-cards { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 40px; }
+    .jsr-card { border: 1px solid var(--border); border-radius: 4px; padding: 28px; background: var(--bg); position: relative; overflow: hidden; cursor: pointer; transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s; text-decoration: none; display: block; }
+    .jsr-card:hover { border-color: var(--navy); transform: translateY(-3px); box-shadow: 0 6px 24px rgba(19,46,94,0.1); }
+    .jsr-num { font-family: 'Playfair Display', serif; font-size: 52px; font-weight: 700; color: var(--border); line-height: 1; margin-bottom: 14px; transition: color 0.2s; }
+    .jsr-card:hover .jsr-num { color: var(--gold-pale); }
+    .jsr-title { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
+    .jsr-desc { font-size: 14px; color: var(--text-mid); line-height: 1.7; margin-bottom: 18px; }
+    .jsr-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: var(--navy); transition: gap 0.2s, color 0.2s; }
+    .jsr-link:hover { color: var(--gold); gap: 10px; }
+    .jsr-link svg { width: 13px; height: 13px; }
+
+    /* Mitglied section */
+    .mitglied-section { padding: 72px 28px; background: var(--gold-pale); }
+    .mitglied-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    .benefit-list { display: flex; flex-direction: column; gap: 12px; margin-top: 24px; }
+    .benefit-row { display: flex; gap: 12px; align-items: flex-start; }
+    .benefit-check { width: 22px; height: 22px; background: var(--navy); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+    .benefit-check svg { width: 11px; height: 11px; color: white; }
+    .benefit-text { font-size: 15px; color: var(--text-mid); line-height: 1.5; }
+    .member-types { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .member-type { background: white; border: 1px solid var(--border); border-radius: 4px; padding: 18px; text-align: center; transition: border-color 0.2s, transform 0.2s; }
+    .member-type:hover { border-color: var(--navy); transform: translateY(-2px); }
+    .member-type-name { font-size: 14px; font-weight: 600; color: var(--navy); margin-bottom: 4px; line-height: 1.3; }
+    .member-type-desc { font-size: 12px; color: var(--text-light); }
+
+    @media (max-width: 900px) {
+      .aufgabe-grid, .tagung-inner, .mitglied-inner { grid-template-columns: 1fr; gap: 40px; }
+      .jsr-cards { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="navbar-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="ImagesJulex/logo-julex.gif" alt="SVJ / SSDPM"/>
+    </a>
+    <div class="nav-menu" id="navMenu">
+      <div class="nav-item">
+        <button>SVJ <svg class="nav-chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4l4 4 4-4"/></svg></button>
+        <div class="dropdown">
+          <a href="svj-vorstand.html">Unser Vorstand</a>
+          <a href="svj-aufgabe.html">Aufgabe</a>
+          <a href="svj-mitgliedschaft.html">Mitgliedschaft</a>
+          <a href="svj-statuten.html">Statuten</a>
+          <a href="svj-fonds.html">Fonds</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <button>Tagungen <svg class="nav-chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4l4 4 4-4"/></svg></button>
+        <div class="dropdown">
+          <a href="tagung-2026.html">Tagung 2026</a>
+          <a href="tagung-archiv.html">Frühere Tagungen</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <button>Jugendstrafrecht <svg class="nav-chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4l4 4 4-4"/></svg></button>
+        <div class="dropdown">
+          <a href="jugendstrafrecht.html">Übersicht</a>
+          <a href="jugendstrafrecht-behoerden.html">Behörden</a>
+          <a href="jugendstrafrecht-praxis.html">Praxis</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <button>Dienstleistungen <svg class="nav-chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4l4 4 4-4"/></svg></button>
+        <div class="dropdown">
+          <a href="dienste-dokumente.html">Dokumente</a>
+          <a href="dienste-links.html">Links</a>
+          <a href="kontakt.html">Kontakt</a>
+        </div>
+      </div>
+    </div>
+    <div class="nav-right">
+      <div class="lang-switcher">
+        <button class="lang-btn active">DE</button>
+        <button class="lang-btn">FR</button>
+      </div>
+      <a href="#" class="btn-login">Mitglieder-Login</a>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Menü öffnen">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="nav-mobile-overlay" id="navOverlay">
+  <div class="mobile-nav-section">
+    <div class="mobile-nav-heading">SVJ</div>
+    <div class="mobile-nav-links">
+      <a href="svj-vorstand.html">Unser Vorstand</a>
+      <a href="svj-aufgabe.html">Aufgabe</a>
+      <a href="svj-mitgliedschaft.html">Mitgliedschaft</a>
+      <a href="svj-statuten.html">Statuten</a>
+      <a href="svj-fonds.html">Fonds</a>
+    </div>
+  </div>
+  <div class="mobile-nav-section">
+    <div class="mobile-nav-heading">Tagungen</div>
+    <div class="mobile-nav-links">
+      <a href="tagung-2026.html">Tagung 2026</a>
+      <a href="tagung-archiv.html">Frühere Tagungen</a>
+    </div>
+  </div>
+  <div class="mobile-nav-section">
+    <div class="mobile-nav-heading">Jugendstrafrecht</div>
+    <div class="mobile-nav-links">
+      <a href="jugendstrafrecht.html">Übersicht</a>
+      <a href="jugendstrafrecht-behoerden.html">Behörden</a>
+      <a href="jugendstrafrecht-praxis.html">Praxis</a>
+    </div>
+  </div>
+  <div class="mobile-nav-section">
+    <div class="mobile-nav-heading">Dienstleistungen</div>
+    <div class="mobile-nav-links">
+      <a href="dienste-dokumente.html">Dokumente</a>
+      <a href="dienste-links.html">Links</a>
+      <a href="kontakt.html">Kontakt</a>
+    </div>
+  </div>
+  <div class="mobile-nav-footer">
+    <div class="lang-switcher">
+      <button class="lang-btn active">DE</button>
+      <button class="lang-btn">FR</button>
+    </div>
+    <a href="#" class="btn-login" style="margin-left:12px;">Mitglieder-Login</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<header class="home-hero">
+  <div class="home-hero-bg"></div>
+  <div class="home-hero-overlay"></div>
+  <div class="home-hero-gold-line"></div>
+  <div class="home-hero-inner">
+    <div>
+      <div class="hero-eyebrow">SVJ / SSDPM — Gegründet 1931</div>
+      <h1 class="hero-title">Schweizerische Vereinigung für Jugendstrafrechtspflege</h1>
+      <div class="hero-rule"></div>
+      <p class="hero-desc">Die SVJ verbindet Fachleute aus Jugendjustiz, Sozialarbeit und Pädagogik. Wir setzen uns für ein Jugendstrafrecht ein, das auf Erziehung und Resozialisierung setzt — nicht auf blosse Strafe.</p>
+      <div class="hero-actions">
+        <a href="svj-mitgliedschaft.html" class="btn-gold">Mitglied werden</a>
+        <a href="tagung-2026.html" class="btn-outline-white">Tagung 2026</a>
+      </div>
+    </div>
+    <div class="hero-panel">
+      <div class="hero-panel-label">SVJ in Zahlen</div>
+      <div class="hero-panel-stat">
+        <div class="hero-panel-num">1931</div>
+        <div class="hero-panel-text">Gründungsjahr</div>
+      </div>
+      <div class="hero-panel-stat">
+        <div class="hero-panel-num">200<sup>+</sup></div>
+        <div class="hero-panel-text">Einzel- &amp; Kollektivmitglieder</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- NEWS -->
+<section class="news-section">
+  <div class="content-inner">
+    <div class="news-header reveal">
+      <div>
+        <span class="section-label">Aktuell</span>
+        <h2 class="section-title">Neuigkeiten &amp; Stellungnahmen</h2>
+        <div class="gold-rule"></div>
+      </div>
+      <a href="dienste-dokumente.html" class="link-arrow">Alle Beiträge <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 7h10M7 2l5 5-5 5"/></svg></a>
+    </div>
+    <div class="news-grid-2">
+      <a href="dienste-dokumente.html" class="news-card-compact reveal">
+        <div class="news-card-body">
+          <div class="news-card-date">2024 / 2025</div>
+          <h3 class="news-card-title">Stellungnahme zum Postulat Engler</h3>
+          <p class="news-card-excerpt">Haben wir ein Problem mit Jugendkriminalität? Bestandesaufnahme zu Jugendkriminalität, Wirksamkeit jugendstrafrechtlicher Sanktionen und Prävention. Der SVJ-Vorstand stellt sich klar hinter die Empfehlung des Bundesrates und mahnt zur Vorsicht. Das Schweizer Jugendstrafrecht ist eine international geachtete Erfolgsgeschichte.</p>
+          <span class="news-card-link">Weiterlesen <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 7h10M7 2l5 5-5 5"/></svg></span>
+        </div>
+      </a>
+      <a href="dienste-dokumente.html" class="news-card-compact reveal reveal-d1">
+        <div class="news-card-body">
+          <div class="news-card-date">August 2023</div>
+          <h3 class="news-card-title">Bundesgerichtsurteil vom 19. Juni 2023</h3>
+          <p class="news-card-excerpt">Das Urteil 6B_911/2021 des Bundesgerichtes vom 19. Juni 2023 wurde an der Vorstandssitzung vom 18. August 2023 diskutiert. Der Vorstand vertritt den Standpunkt, dass das ergangene Urteil keinen Einfluss auf die heutige Praxis im Jugendbereich hat.</p>
+          <span class="news-card-link">Weiterlesen <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 7h10M7 2l5 5-5 5"/></svg></span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- JAHRESTAGUNG 2026 (VOR AUFGABE) -->
+<section class="section-dark">
+  <div class="tagung-inner">
+    <div class="reveal">
+      <span class="section-label">Nächste Veranstaltung</span>
+      <h2 class="section-title">Jahrestagung 2026</h2>
+      <div class="gold-rule"></div>
+      <p class="section-desc">Die SVJ-Tagung 2026 findet vom <strong style="color:white;">9. – 11. September in Zug</strong> statt. Sie dient dem fachlichen Austausch, der Behandlung aktueller Themen des Jugendstrafrechts und dem persönlichen Kontakt unter den Mitgliedern.</p>
+      <div style="margin-top:28px; display:flex; flex-direction:column; gap:14px;">
+        <div style="display:flex;gap:12px;align-items:center;">
+          <div style="width:36px;height:36px;background:rgba(255,255,255,0.08);border-radius:4px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c4a05a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <div><div style="font-size:11px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:1px;font-weight:600;">Datum</div><div style="font-size:15px;color:rgba(255,255,255,0.85);font-weight:500;margin-top:2px;">9. – 11. September 2026</div></div>
+        </div>
+        <div style="display:flex;gap:12px;align-items:center;">
+          <div style="width:36px;height:36px;background:rgba(255,255,255,0.08);border-radius:4px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c4a05a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div><div style="font-size:11px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:1px;font-weight:600;">Ort</div><div style="font-size:15px;color:rgba(255,255,255,0.85);font-weight:500;margin-top:2px;">Zug</div></div>
+        </div>
+      </div>
+      <div class="btn-actions">
+        <a href="tagung-2026.html" class="btn-gold">Mehr zur Tagung 2026</a>
+        <a href="tagung-archiv.html" class="btn-outline-white">Frühere Tagungen</a>
+      </div>
+    </div>
+    <div class="reveal reveal-d1">
+      <div class="agenda-dark">
+        <div style="background:rgba(255,255,255,0.08);padding:14px 20px;border-bottom:1px solid rgba(255,255,255,0.06);">
+          <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.4);">Tagungsprogramm</div>
+        </div>
+        <div class="agenda-row">
+          <div class="agenda-time">Mi</div>
+          <div class="agenda-content"><div class="agenda-name">Eröffnung Tagung &amp; Gala-Dinner</div><div class="agenda-sub">Begrüssung, Eröffnungsreferat, gemeinsames Abendessen</div></div>
+        </div>
+        <div class="agenda-row">
+          <div class="agenda-time">Do</div>
+          <div class="agenda-content"><div class="agenda-name">Workshops &amp; Rahmenprogramm</div><div class="agenda-sub">Fachworkshops, Fallbesprechungen, kulturelles Programm</div></div>
+        </div>
+        <div class="agenda-row">
+          <div class="agenda-time">Fr</div>
+          <div class="agenda-content"><div class="agenda-name">Tagung &amp; Generalversammlung</div><div class="agenda-sub">Hauptreferate, GV der SVJ, Jahresbericht, Wahlen</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WOFÜR STEHT DIE SVJ -->
+<section class="aufgabe-section">
+  <div class="content-inner">
+    <div class="aufgabe-grid">
+      <div class="reveal">
+        <div class="aufgabe-img">
+          <img src="ImagesJulex/pexels-sora-shimazaki-5669602.jpg" alt="Waage der Gerechtigkeit" loading="lazy"/>
+          <div class="aufgabe-img-badge">
+            <div class="aufgabe-img-badge-text">«Erziehung stets dem Strafvollzug vorziehen.»</div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal reveal-d1">
+        <span class="section-label">Aufgabe &amp; Ziele</span>
+        <h2 class="section-title">Wofür steht die SVJ?</h2>
+        <div class="gold-rule"></div>
+        <div class="blockquote">
+          <p>Die Vereinigung befasst sich mit allen Erscheinungsformen der Jugendkriminalität und den ihr zugrunde liegenden Jugendproblemen; insbesondere hat sie sich die Weiterentwicklung der Jugendstrafgesetzgebung sowie die Verbesserung der Jugendstrafrechtspflege und ihrer Vollzugseinrichtungen zur Aufgabe gesetzt.</p>
+        </div>
+        <div>
+          <div class="point-card">
+            <div class="point-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <div><div class="point-title">Vernetzung der Fachleute</div><div class="point-desc">Richterinnen, Anwälte, Sozialarbeiterinnen und Heimleitungen im Dialog.</div></div>
+          </div>
+          <div class="point-card">
+            <div class="point-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+            <div><div class="point-title">Rechtspolitisches Engagement</div><div class="point-desc">Aktive Teilnahme an Vernehmlassungen und Stellungnahmen zu Gesetzgebungsvorhaben.</div></div>
+          </div>
+          <div class="point-card">
+            <div class="point-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+            <div><div class="point-title">Wissen &amp; Jahrestagungen</div><div class="point-desc">Aktuelle Fachthemen, Rechtsgrundlagen und interdisziplinärer Dialog.</div></div>
+          </div>
+        </div>
+        <div class="btn-actions">
+          <a href="svj-aufgabe.html" class="btn-navy">Mehr über die SVJ</a>
+          <a href="svj-vorstand.html" class="btn-outline">Unser Vorstand</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JUGENDSTRAFRECHT -->
+<section class="jsr-section">
+  <div class="content-inner">
+    <div class="reveal">
+      <span class="section-label">Rechtliche Grundlagen</span>
+      <h2 class="section-title">Das Schweizerische Jugendstrafrecht</h2>
+      <div class="gold-rule"></div>
+      <p class="section-desc" style="max-width:600px;">Seit dem 1. Januar 2007 in einem eigenständigen Gesetz geregelt — das JStG stellt Erziehung und Resozialisierung in den Vordergrund.</p>
+    </div>
+    <div class="jsr-cards">
+      <a href="jugendstrafrecht.html" class="jsr-card reveal reveal-d1">
+        <div class="jsr-num">01</div>
+        <h3 class="jsr-title">Übersicht</h3>
+        <p class="jsr-desc">Das JStG regelt die Strafbarkeit und Massnahmen für Jugendliche zwischen 10 und 18 Jahren. Schutzmassnahmen haben stets Vorrang vor Strafen.</p>
+        <span class="jsr-link">Mehr erfahren <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 7h10M7 2l5 5-5 5"/></svg></span>
+      </a>
+      <a href="jugendstrafrecht-behoerden.html" class="jsr-card reveal reveal-d2">
+        <div class="jsr-num">02</div>
+        <h3 class="jsr-title">Behörden</h3>
+        <p class="jsr-desc">Seit dem 1. Januar 2011 gilt die Jugendstrafprozessordnung. Verzeichnis aller Jugendanwaltschaften und Jugendgerichte mit Kontaktangaben.</p>
+        <span class="jsr-link">Verzeichnis <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 7h10M7 2l5 5-5 5"/></svg></span>
+      </a>
+      <a href="jugendstrafrecht-praxis.html" class="jsr-card reveal reveal-d3">
+        <div class="jsr-num">03</div>
+        <h3 class="jsr-title">Praxis &amp; Empfehlungen</h3>
+        <p class="jsr-desc">Empfehlungen zu Gerichtsstand, Terrorismusbekämpfung und weiteren Praxisfragen sowie aktuelle Stellungnahmen des SVJ-Vorstandes.</p>
+        <span class="jsr-link">Empfehlungen <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 7h10M7 2l5 5-5 5"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- MITGLIEDSCHAFT -->
+<section class="mitglied-section">
+  <div class="mitglied-inner content-inner">
+    <div class="reveal">
+      <span class="section-label">Mitgliedschaft</span>
+      <h2 class="section-title">Teil der SVJ werden</h2>
+      <div class="gold-rule"></div>
+      <p class="section-desc">Die SVJ zählt rund 200 Einzel- und Kollektivmitglieder aus allen Bereichen der Jugendstrafrechtspflege. Werden Sie Teil dieser Fachgemeinschaft.</p>
+      <div class="benefit-list">
+        <div class="benefit-row"><div class="benefit-check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M2 6l3 3 5-5"/></svg></div><div class="benefit-text">Zugang zu Tagungsunterlagen und allen Dokumenten</div></div>
+        <div class="benefit-row"><div class="benefit-check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M2 6l3 3 5-5"/></svg></div><div class="benefit-text">Teilnahme an der Jahrestagung und Generalversammlung</div></div>
+        <div class="benefit-row"><div class="benefit-check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M2 6l3 3 5-5"/></svg></div><div class="benefit-text">Vernetzung mit Fachkolleginnen und -kollegen schweizweit</div></div>
+        <div class="benefit-row"><div class="benefit-check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M2 6l3 3 5-5"/></svg></div><div class="benefit-text">Mitsprache bei rechtspolitischen Stellungnahmen</div></div>
+      </div>
+      <div class="btn-actions"><a href="svj-mitgliedschaft.html" class="btn-navy">Mitglied werden</a><a href="svj-statuten.html" class="btn-outline">Statuten lesen</a></div>
+    </div>
+    <div class="reveal reveal-d1">
+      <div class="member-types">
+        <div class="member-type"><div class="member-type-name">Jugendrichterinnen &amp; -richter</div><div class="member-type-desc">Jugendgerichtsbarkeit</div></div>
+        <div class="member-type"><div class="member-type-name">Jugendanwältinnen &amp; -anwälte</div><div class="member-type-desc">Spezialisierte Staatsanwaltschaften</div></div>
+        <div class="member-type"><div class="member-type-name">Sozialarbeiterinnen &amp; -arbeiter</div><div class="member-type-desc">Soziale Arbeit im Jugendstrafrecht</div></div>
+        <div class="member-type"><div class="member-type-name">Heimleitungen &amp; Sozialpädagoginnen</div><div class="member-type-desc">Vollzugseinrichtungen</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top"><div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-name">SVJ / SSDPM</div>
+        <p class="footer-desc">Schweizerische Vereinigung für Jugendstrafrechtspflege — Société suisse de droit pénal des mineurs. Gegründet 1931.</p>
+        <div class="footer-contact">
+          <div class="footer-contact-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="13" height="13"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Patrik Killer, Präsident SVJ<br/>Josefstrasse 59, Postfach, 8005 Zürich</span></div>
+          <div class="footer-contact-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="13" height="13"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.62 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l.77-.77a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>043 285 38 38</span></div>
+          <div class="footer-contact-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="13" height="13"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span>kanzlei.jugastadtzuerich@ji.zh.ch</span></div>
+        </div>
+      </div>
+      <div><div class="footer-col-title">SVJ</div><div class="footer-links"><a href="svj-vorstand.html">Unser Vorstand</a><a href="svj-aufgabe.html">Aufgabe</a><a href="svj-mitgliedschaft.html">Mitgliedschaft</a><a href="svj-statuten.html">Statuten</a><a href="svj-fonds.html">Fonds</a></div></div>
+      <div><div class="footer-col-title">Tagungen</div><div class="footer-links"><a href="tagung-2026.html">Tagung 2026</a><a href="tagung-archiv.html">Frühere Tagungen</a><a href="tagung-2026.html#anmeldung">Anmeldung</a></div></div>
+      <div><div class="footer-col-title">Dienste</div><div class="footer-links"><a href="jugendstrafrecht.html">Jugendstrafrecht</a><a href="jugendstrafrecht-behoerden.html">Behörden</a><a href="dienste-dokumente.html">Dokumente</a><a href="dienste-links.html">Links</a><a href="kontakt.html">Kontakt</a></div></div>
+    </div>
+  </div></div>
+  <div class="footer-bottom"><div class="footer-bottom-inner">
+    <div class="footer-copy">© 2026 Schweizerische Vereinigung für Jugendstrafrechtspflege (SVJ / SSDPM)</div>
+    <div class="footer-bottom-links"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a><a href="kontakt.html">Kontakt</a><a href="#">Login</a></div>
+  </div></div>
+</footer>
+
+<script>
+// Scroll reveal
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, {threshold: 0.1});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// Hamburger menu
+const burger = document.getElementById('navHamburger');
+const overlay = document.getElementById('navOverlay');
+burger.addEventListener('click', () => {
+  const isOpen = overlay.classList.toggle('open');
+  burger.classList.toggle('open', isOpen);
+  burger.setAttribute('aria-label', isOpen ? 'Menü schliessen' : 'Menü öffnen');
+  document.body.style.overflow = isOpen ? 'hidden' : '';
+});
+// Close on link click
+overlay.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  overlay.classList.remove('open');
+  burger.classList.remove('open');
+  document.body.style.overflow = '';
+}));
+</script>
+</body>
+</html>

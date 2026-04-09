@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tagung 2026 — SVJ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="assets/style.css"/>
+  <style>
+    .tagung-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+    .info-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin: 28px 0 32px;
+    }
+    .info-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 16px;
+      background: var(--color-warm, #f8f6f1);
+      border-radius: 6px;
+    }
+    .info-row-icon {
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
+      background: var(--color-gold, #b8975a);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+    }
+    .info-row-icon svg {
+      width: 16px;
+      height: 16px;
+    }
+    .info-row-body {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .info-row-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-gold, #b8975a);
+    }
+    .info-row-value {
+      font-size: 0.95rem;
+      color: var(--color-navy, #1a2744);
+      line-height: 1.5;
+    }
+    .btn-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+    .about-tagung {
+      margin-top: 40px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(184,151,90,0.25);
+    }
+    .agenda-card {
+      background: #fff;
+      border: 1px solid #e2ddd4;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+    }
+    .agenda-card-header {
+      background: var(--color-navy, #1a2744);
+      color: #fff;
+      padding: 20px 24px;
+    }
+    .agenda-card-header h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 0;
+      color: #fff;
+    }
+    .agenda {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .agenda tr {
+      border-bottom: 1px solid #f0ece5;
+    }
+    .agenda tr:last-child {
+      border-bottom: none;
+    }
+    .agenda td {
+      padding: 13px 16px;
+      font-size: 0.88rem;
+      vertical-align: top;
+      line-height: 1.5;
+    }
+    .agenda td:first-child {
+      font-weight: 600;
+      color: var(--color-gold, #b8975a);
+      white-space: nowrap;
+      width: 62px;
+      padding-right: 8px;
+    }
+    .agenda td:nth-child(2) {
+      color: var(--color-navy, #1a2744);
+      font-weight: 500;
+    }
+    .agenda td:last-child {
+      color: #888;
+      font-size: 0.82rem;
+    }
+    .agenda tr:nth-child(even) td {
+      background: #faf9f7;
+    }
+    .reg-form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .reg-form-grid .form-group.full {
+      grid-column: 1 / -1;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .form-group label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: rgba(255,255,255,0.65);
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      padding: 11px 14px;
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 5px;
+      background: rgba(255,255,255,0.07);
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.92rem;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: rgba(255,255,255,0.3);
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--color-gold, #b8975a);
+      background: rgba(255,255,255,0.11);
+    }
+    .form-group select option {
+      background: #1a2744;
+      color: #fff;
+    }
+    .form-group textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+    .reg-section-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .reg-section-header .section-label {
+      color: var(--color-gold, #b8975a);
+    }
+    .reg-section-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 600;
+      color: #fff;
+      margin: 12px 0 0;
+    }
+    @media (max-width: 900px) {
+      .tagung-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .reg-form-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+  <div class="navbar-inner">
+    <a href="index.html" class="nav-logo"><img src="ImagesJulex/logo-julex.gif" alt="SVJ / SSDPM"/></a>
+    <div class="nav-menu">
+      <div class="nav-item"><button>SVJ <svg class="nav-chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4l4 4 4-4"/></svg></button><div class="dropdown"><a href="svj-vorstand.html">Unser Vorstand</a><a href="svj-aufgabe.html">Aufgabe</a><a href="svj-mitgliedschaft.html">Mitgliedschaft</a><a href="svj-statuten.html">Statuten</a><a href="svj-fonds.html">Fonds</a></div></div>
+      <div class="nav-item"><button class="active-page">Tagungen <svg class="nav-chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4l4 4 4-4"/></svg></button><div class="dropdown"><a href="tagung-2026.html">Tagung 2026</a><a href="tagung-archiv.html">Frühere Tagungen</a></div></div>
+      <div class="nav-item"><button>Jugendstrafrecht <svg class="nav-chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4l4 4 4-4"/></svg></button><div class="dropdown"><a href="jugendstrafrecht.html">Übersicht</a><a href="jugendstrafrecht-behoerden.html">Behörden</a><a href="jugendstrafrecht-praxis.html">Praxis</a></div></div>
+      <div class="nav-item"><button>Dienstleistungen <svg class="nav-chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4l4 4 4-4"/></svg></button><div class="dropdown"><a href="dienste-dokumente.html">Dokumente</a><a href="dienste-links.html">Links</a><a href="kontakt.html">Kontakt</a></div></div>
+    </div>
+    <div class="nav-right">
+      <div class="lang-switcher"><button class="lang-btn active">DE</button><button class="lang-btn">FR</button></div>
+      <a href="#" class="btn-login">Mitglieder-Login</a>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="nav-mobile-overlay" id="navOverlay">
+  <div class="mobile-nav-section"><div class="mobile-nav-heading">SVJ</div><div class="mobile-nav-links"><a href="svj-vorstand.html">Unser Vorstand</a><a href="svj-aufgabe.html">Aufgabe</a><a href="svj-mitgliedschaft.html">Mitgliedschaft</a><a href="svj-statuten.html">Statuten</a><a href="svj-fonds.html">Fonds</a></div></div>
+  <div class="mobile-nav-section"><div class="mobile-nav-heading">Tagungen</div><div class="mobile-nav-links"><a href="tagung-2026.html">Tagung 2026</a><a href="tagung-archiv.html">Frühere Tagungen</a></div></div>
+  <div class="mobile-nav-section"><div class="mobile-nav-heading">Jugendstrafrecht</div><div class="mobile-nav-links"><a href="jugendstrafrecht.html">Übersicht</a><a href="jugendstrafrecht-behoerden.html">Behörden</a><a href="jugendstrafrecht-praxis.html">Praxis</a></div></div>
+  <div class="mobile-nav-section"><div class="mobile-nav-heading">Dienstleistungen</div><div class="mobile-nav-links"><a href="dienste-dokumente.html">Dokumente</a><a href="dienste-links.html">Links</a><a href="kontakt.html">Kontakt</a></div></div>
+  <div class="mobile-nav-footer"><div class="lang-switcher"><button class="lang-btn active">DE</button><button class="lang-btn">FR</button></div><a href="#" class="btn-login" style="margin-left:12px;">Login</a></div>
+</div>
+
+<div class="page-hero" style="background-image: url('ImagesJulex/pexels-kampus-production-8463142.jpg');">
+  <div class="page-hero-inner">
+    <div class="page-hero-label">Tagungen</div>
+    <h1 class="page-hero-title">Jahrestagung 2026</h1>
+  </div>
+</div>
+
+<section class="content-section bg-white">
+  <div class="content-inner">
+    <div class="tagung-grid">
+
+      <!-- Left Column -->
+      <div>
+        <div class="section-label reveal">Nächste Veranstaltung</div>
+        <h2 class="section-title reveal">Jahrestagung 2026</h2>
+        <div class="gold-rule reveal"></div>
+        <p class="reveal" style="font-size:1rem;line-height:1.75;color:#444;margin-bottom:0;">
+          Die SVJ-Tagung findet jährlich gegen Mitte September in einem wechselnden Kanton statt. Sie dient einerseits der Behandlung eines aktuellen Themas aus dem Jugendstrafrecht, andererseits dem fachlichen Austausch und dem persönlichen Kontakt unter den Mitgliedern.
+        </p>
+
+        <div class="info-grid reveal">
+          <div class="info-row">
+            <div class="info-row-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            </div>
+            <div class="info-row-body">
+              <div class="info-row-label">Datum</div>
+              <div class="info-row-value">9. – 11. September 2026</div>
+            </div>
+          </div>
+          <div class="info-row">
+            <div class="info-row-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="info-row-body">
+              <div class="info-row-label">Ort</div>
+              <div class="info-row-value">Zug</div>
+            </div>
+          </div>
+          <div class="info-row">
+            <div class="info-row-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            </div>
+            <div class="info-row-body">
+              <div class="info-row-label">Anmeldung</div>
+              <div class="info-row-value">Anmeldeformular folgt in Kürze</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="btn-row reveal">
+          <a href="#anmeldung" class="btn-gold">Jetzt anmelden</a>
+          <a href="tagung-archiv.html" class="btn-outline">Frühere Tagungen</a>
+        </div>
+
+        <div class="about-tagung reveal">
+          <div class="section-label" style="margin-bottom:10px;">Über die Tagung</div>
+          <p style="font-size:0.97rem;line-height:1.75;color:#444;margin:0 0 12px;">
+            Die Jahrestagung der SVJ bietet eine einzigartige Plattform für den interdisziplinären Austausch zwischen Richterinnen und Richtern, Staatsanwältinnen und Staatsanwälten, Bewährungshelferinnen und Bewährungshelfern sowie weiteren Fachpersonen der Jugendstrafrechtspflege.
+          </p>
+          <p style="font-size:0.97rem;line-height:1.75;color:#444;margin:0;">
+            Neben der fachlichen Vertiefung aktueller Fragen steht die Generalversammlung des Vereins auf der Tagesordnung. Die Tagung schliesst traditionell mit einem Apéro, der den informellen Austausch unter den Teilnehmenden ermöglicht.
+          </p>
+        </div>
+      </div>
+
+      <!-- Right Column -->
+      <div class="reveal">
+        <div class="agenda-card">
+          <div class="agenda-card-header">
+            <h3>Typisches Tagungsprogramm</h3>
+          </div>
+          <table class="agenda">
+            <tbody>
+              <tr>
+                <td>Mi</td>
+                <td>Eröffnung Tagung &amp; Gala-Dinner</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Do</td>
+                <td>Workshops &amp; Rahmenprogramm</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Fr</td>
+                <td>Tagung &amp; Generalversammlung SVJ</td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Registration Section -->
+<section id="anmeldung" class="section-dark" style="padding: 80px 0;">
+  <div class="content-inner">
+    <div class="reg-section-header reveal">
+      <div class="section-label">Teilnahme</div>
+      <h2>Anmeldung</h2>
+    </div>
+    <form class="reg-form-grid reveal" action="#" method="post">
+      <div class="form-group">
+        <label for="anrede">Anrede</label>
+        <select id="anrede" name="anrede">
+          <option value="">Bitte wählen</option>
+          <option value="herr">Herr</option>
+          <option value="frau">Frau</option>
+          <option value="divers">Divers</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="vorname">Vorname</label>
+        <input type="text" id="vorname" name="vorname" placeholder="Ihr Vorname"/>
+      </div>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Ihr Nachname"/>
+      </div>
+      <div class="form-group">
+        <label for="institution">Institution / Organisation</label>
+        <input type="text" id="institution" name="institution" placeholder="Ihre Institution"/>
+      </div>
+      <div class="form-group">
+        <label for="funktion">Funktion</label>
+        <input type="text" id="funktion" name="funktion" placeholder="Ihre Funktion"/>
+      </div>
+      <div class="form-group">
+        <label for="email">E-Mail</label>
+        <input type="email" id="email" name="email" placeholder="ihre@email.ch"/>
+      </div>
+      <div class="form-group">
+        <label for="telefon">Telefon</label>
+        <input type="tel" id="telefon" name="telefon" placeholder="+41 00 000 00 00"/>
+      </div>
+      <div class="form-group full">
+        <label for="bemerkungen">Bemerkungen</label>
+        <textarea id="bemerkungen" name="bemerkungen" placeholder="Allfällige Bemerkungen oder besondere Bedürfnisse"></textarea>
+      </div>
+      <div class="form-group full" style="margin-top:8px;">
+        <button type="submit" class="btn-gold" style="align-self:flex-start;border:none;cursor:pointer;font-family:inherit;">Anmeldung einreichen</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top"><div class="footer-inner"><div class="footer-grid">
+    <div>
+      <div class="footer-brand-name">SVJ / SSDPM</div>
+      <p class="footer-desc">Schweizerische Vereinigung für Jugendstrafrechtspflege — gegründet 1931.</p>
+      <div class="footer-contact">
+        <div class="footer-contact-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="13" height="13"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Patrik Killer, Präsident SVJ<br/>Josefstrasse 59, Postfach, 8005 Zürich</span></div>
+        <div class="footer-contact-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="13" height="13"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.62 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l.77-.77a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>043 285 38 38</span></div>
+        <div class="footer-contact-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="13" height="13"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span>info@julex.ch</span></div>
+      </div>
+    </div>
+    <div><div class="footer-col-title">SVJ</div><div class="footer-links"><a href="svj-vorstand.html">Vorstand</a><a href="svj-aufgabe.html">Aufgabe</a><a href="svj-mitgliedschaft.html">Mitgliedschaft</a><a href="svj-statuten.html">Statuten</a><a href="svj-fonds.html">Fonds</a></div></div>
+    <div><div class="footer-col-title">Tagungen</div><div class="footer-links"><a href="tagung-2026.html">Tagung 2026</a><a href="tagung-archiv.html">Frühere Tagungen</a></div></div>
+    <div><div class="footer-col-title">Dienste</div><div class="footer-links"><a href="jugendstrafrecht.html">Jugendstrafrecht</a><a href="dienste-dokumente.html">Dokumente</a><a href="dienste-links.html">Links</a><a href="kontakt.html">Kontakt</a></div></div>
+  </div></div></div>
+  <div class="footer-bottom"><div class="footer-bottom-inner">
+    <div class="footer-copy">© 2026 Schweizerische Vereinigung für Jugendstrafrechtspflege (SVJ)</div>
+    <div class="footer-bottom-links"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a><a href="kontakt.html">Kontakt</a></div>
+  </div></div>
+</footer>
+<script>
+const obs = new IntersectionObserver(e => e.forEach(el => { if(el.isIntersecting) el.target.classList.add('visible'); }), {threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+const burger = document.getElementById('navHamburger');
+const overlay = document.getElementById('navOverlay');
+if(burger) burger.addEventListener('click', () => {
+  const open = overlay.classList.toggle('open');
+  burger.classList.toggle('open', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+});
+if(overlay) overlay.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  overlay.classList.remove('open'); burger.classList.remove('open'); document.body.style.overflow = '';
+}));
+</script>
+</body>
+</html>

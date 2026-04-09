@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mitgliedschaft – SVJ Julex</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="assets/style.css"/>
+  <style>
+    .membership-type {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.75rem;
+      margin-bottom: 1.25rem;
+    }
+    .membership-type h3 {
+      font-size: 1.1rem;
+      color: var(--navy);
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .membership-type h3::before {
+      content: '';
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      background: var(--gold);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .benefits-list {
+      list-style: none;
+      padding: 0;
+      margin: 0.75rem 0 0;
+    }
+    .benefits-list li {
+      padding: 0.4rem 0 0.4rem 1.5rem;
+      position: relative;
+      font-size: 0.92rem;
+      color: var(--text-mid);
+      line-height: 1.6;
+    }
+    .benefits-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-weight: 700;
+    }
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+    .form-group.full-width {
+      grid-column: 1 / -1;
+    }
+    .form-group label {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--navy);
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      padding: 0.65rem 0.875rem;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      background: white;
+      color: var(--text);
+      transition: border-color 0.2s;
+      outline: none;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--navy);
+    }
+    .form-group textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+    @media (max-width: 640px) {
+      .form-grid { grid-template-columns: 1fr; }
+      .form-group.full-width { grid-column: 1; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+  <div class="navbar-inner">
+    <a href="index.html" class="nav-logo"><img src="ImagesJulex/logo-julex.gif" alt="SVJ / SSDPM"/></a>
+    <div class="nav-menu">
+      <div class="nav-item"><button class="active-page">SVJ <svg class="nav-chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4l4 4 4-4"/></svg></button><div class="dropdown"><a href="svj-vorstand.html">Unser Vorstand</a><a href="svj-aufgabe.html">Aufgabe</a><a href="svj-mitgliedschaft.html">Mitgliedschaft</a><a href="svj-statuten.html">Statuten</a><a href="svj-fonds.html">Fonds</a></div></div>
+      <div class="nav-item"><button>Tagungen <svg class="nav-chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4l4 4 4-4"/></svg></button><div class="dropdown"><a href="tagung-2026.html">Tagung 2026</a><a href="tagung-archiv.html">Frühere Tagungen</a></div></div>
+      <div class="nav-item"><button>Jugendstrafrecht <svg class="nav-chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4l4 4 4-4"/></svg></button><div class="dropdown"><a href="jugendstrafrecht.html">Übersicht</a><a href="jugendstrafrecht-behoerden.html">Behörden</a><a href="jugendstrafrecht-praxis.html">Praxis</a></div></div>
+      <div class="nav-item"><button>Dienstleistungen <svg class="nav-chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4l4 4 4-4"/></svg></button><div class="dropdown"><a href="dienste-dokumente.html">Dokumente</a><a href="dienste-links.html">Links</a><a href="kontakt.html">Kontakt</a></div></div>
+    </div>
+    <div class="nav-right">
+      <div class="lang-switcher"><button class="lang-btn active">DE</button><button class="lang-btn">FR</button></div>
+      <a href="#" class="btn-login">Mitglieder-Login</a>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="nav-mobile-overlay" id="navOverlay">
+  <div class="mobile-nav-section"><div class="mobile-nav-heading">SVJ</div><div class="mobile-nav-links"><a href="svj-vorstand.html">Unser Vorstand</a><a href="svj-aufgabe.html">Aufgabe</a><a href="svj-mitgliedschaft.html">Mitgliedschaft</a><a href="svj-statuten.html">Statuten</a><a href="svj-fonds.html">Fonds</a></div></div>
+  <div class="mobile-nav-section"><div class="mobile-nav-heading">Tagungen</div><div class="mobile-nav-links"><a href="tagung-2026.html">Tagung 2026</a><a href="tagung-archiv.html">Frühere Tagungen</a></div></div>
+  <div class="mobile-nav-section"><div class="mobile-nav-heading">Jugendstrafrecht</div><div class="mobile-nav-links"><a href="jugendstrafrecht.html">Übersicht</a><a href="jugendstrafrecht-behoerden.html">Behörden</a><a href="jugendstrafrecht-praxis.html">Praxis</a></div></div>
+  <div class="mobile-nav-section"><div class="mobile-nav-heading">Dienstleistungen</div><div class="mobile-nav-links"><a href="dienste-dokumente.html">Dokumente</a><a href="dienste-links.html">Links</a><a href="kontakt.html">Kontakt</a></div></div>
+  <div class="mobile-nav-footer"><div class="lang-switcher"><button class="lang-btn active">DE</button><button class="lang-btn">FR</button></div><a href="#" class="btn-login" style="margin-left:12px;">Login</a></div>
+</div>
+
+<div class="page-hero">
+  <div class="page-hero-img" style="background-image:url('ImagesJulex/pexels-olia-danilevich-5313361.jpg');"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-gold-line"></div>
+  <div class="page-hero-inner">
+    <div class="page-hero-breadcrumb"><a href="index.html">Home</a><span>›</span><span>SVJ</span><span>›</span><span>Mitgliedschaft</span></div>
+    <span class="page-hero-label">SVJ</span>
+    <h1>Mitgliedschaft</h1>
+  </div>
+</div>
+
+<section class="content-section bg-white">
+  <div class="content-inner">
+    <div class="layout-sidebar">
+      <div class="sidebar">
+        <div class="sidebar-menu">
+          <div class="sidebar-menu-title">SVJ</div>
+          <a href="svj-vorstand.html">Unser Vorstand</a>
+          <a href="svj-aufgabe.html">Aufgabe</a>
+          <a href="svj-mitgliedschaft.html" class="active-page">Mitgliedschaft</a>
+          <a href="svj-statuten.html">Statuten</a>
+          <a href="svj-fonds.html">Fonds</a>
+        </div>
+      </div>
+      <div class="main-content">
+
+        <div class="reveal">
+          <h2 style="font-size:1.7rem;color:var(--navy);margin-bottom:1rem;">Mitglied werden</h2>
+          <p style="font-size:1rem;color:var(--text-mid);line-height:1.8;margin-bottom:2rem;">
+            Die Schweizerische Vereinigung für Jugendstrafrechtspflege steht allen Personen und Institutionen offen, die sich für die Weiterentwicklung des Jugendstrafrechts und die Jugendstrafrechtspflege einsetzen. Wir freuen uns über jede Unterstützung.
+          </p>
+        </div>
+
+        <!-- Membership Types -->
+        <div class="reveal">
+          <h3 style="font-size:1.2rem;color:var(--navy);margin-bottom:1rem;font-family:'Playfair Display',serif;">Mitgliedschaftsarten</h3>
+
+          <div class="membership-type">
+            <h3>Einzelmitglieder</h3>
+            <p style="font-size:0.92rem;color:var(--text-mid);line-height:1.7;">Natürliche Personen, die sich beruflich oder wissenschaftlich mit Fragen der Jugendkriminalität, des Jugendstrafrechts oder der Jugendstrafrechtspflege befassen. Dazu gehören Richterinnen und Richter, Staatsanwältinnen und Staatsanwälte, Sozialarbeitende, Lehrpersonen, Forschende und weitere Fachleute.</p>
+            <ul class="benefits-list">
+              <li>Teilnahme an der Jahrestagung zu Vorzugskonditionen</li>
+              <li>Zugang zu Fachinformationen und Publikationen</li>
+              <li>Vernetzung mit Fachkolleginnen und -kollegen schweizweit</li>
+              <li>Stimmrecht an der Generalversammlung</li>
+              <li>Jahresbeitrag: CHF 100.–</li>
+            </ul>
+          </div>
+
+          <div class="membership-type">
+            <h3>Kollektivmitglieder</h3>
+            <p style="font-size:0.92rem;color:var(--text-mid);line-height:1.7;">Juristische Personen, Behörden, Institutionen und Organisationen, die im Bereich der Jugendstrafrechtspflege oder der Jugendhilfe tätig sind oder diese Ziele der SVJ unterstützen.</p>
+            <ul class="benefits-list">
+              <li>Nennung im Mitgliederverzeichnis der SVJ</li>
+              <li>Mehrere Delegierte an der Generalversammlung</li>
+              <li>Ermässigte Konditionen für Mitarbeitende bei Tagungen</li>
+              <li>Direkte Kommunikation zu rechtspolitischen Entwicklungen</li>
+              <li>Jahresbeitrag: CHF 300.–</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Benefits Summary -->
+        <div class="reveal" style="margin:2.5rem 0;padding:1.75rem 2rem;background:var(--navy);border-radius:8px;color:white;">
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.15rem;margin-bottom:1rem;color:var(--gold-light);">Ihre Vorteile als Mitglied</h3>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem 2rem;">
+            <div style="font-size:0.88rem;opacity:0.85;padding:0.25rem 0 0.25rem 1.25rem;position:relative;">
+              <span style="position:absolute;left:0;color:var(--gold-light);">→</span>Jahrestagungen zu Sondertarifen
+            </div>
+            <div style="font-size:0.88rem;opacity:0.85;padding:0.25rem 0 0.25rem 1.25rem;position:relative;">
+              <span style="position:absolute;left:0;color:var(--gold-light);">→</span>Fachpublikationen &amp; Newsletter
+            </div>
+            <div style="font-size:0.88rem;opacity:0.85;padding:0.25rem 0 0.25rem 1.25rem;position:relative;">
+              <span style="position:absolute;left:0;color:var(--gold-light);">→</span>Mitgliederbereich mit Dokumenten
+            </div>
+            <div style="font-size:0.88rem;opacity:0.85;padding:0.25rem 0 0.25rem 1.25rem;position:relative;">
+              <span style="position:absolute;left:0;color:var(--gold-light);">→</span>Schweizweites Fachkollegium
+            </div>
+          </div>
+        </div>
+
+        <!-- Membership Form -->
+        <div class="reveal" id="beitritt">
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--navy);margin-bottom:0.5rem;">Beitrittsgesuch</h3>
+          <p style="font-size:0.92rem;color:var(--text-light);margin-bottom:1.5rem;">Füllen Sie das Formular aus. Wir melden uns nach Eingang Ihres Gesuchs bei Ihnen.</p>
+
+          <form style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:2rem;">
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="anrede">Anrede</label>
+                <select id="anrede" name="anrede">
+                  <option value="">Bitte wählen</option>
+                  <option value="frau">Frau</option>
+                  <option value="herr">Herr</option>
+                  <option value="divers">Divers</option>
+                </select>
+              </div>
+              <div class="form-group" style="grid-column:2;"><!-- spacer --></div>
+              <div class="form-group">
+                <label for="vorname">Vorname *</label>
+                <input type="text" id="vorname" name="vorname" placeholder="Ihr Vorname" required/>
+              </div>
+              <div class="form-group">
+                <label for="name">Name *</label>
+                <input type="text" id="name" name="name" placeholder="Ihr Nachname" required/>
+              </div>
+              <div class="form-group">
+                <label for="organisation">Organisation / Institution</label>
+                <input type="text" id="organisation" name="organisation" placeholder="Name der Organisation"/>
+              </div>
+              <div class="form-group">
+                <label for="funktion">Funktion / Beruf</label>
+                <input type="text" id="funktion" name="funktion" placeholder="Ihre Tätigkeit"/>
+              </div>
+              <div class="form-group full-width">
+                <label for="adresse">Adresse *</label>
+                <input type="text" id="adresse" name="adresse" placeholder="Strasse und Hausnummer" required/>
+              </div>
+              <div class="form-group">
+                <label for="plz">PLZ *</label>
+                <input type="text" id="plz" name="plz" placeholder="z.B. 3000" required/>
+              </div>
+              <div class="form-group">
+                <label for="ort">Ort *</label>
+                <input type="text" id="ort" name="ort" placeholder="Ihre Ortschaft" required/>
+              </div>
+              <div class="form-group">
+                <label for="email">E-Mail *</label>
+                <input type="email" id="email" name="email" placeholder="ihre@email.ch" required/>
+              </div>
+              <div class="form-group">
+                <label for="telefon">Telefon</label>
+                <input type="tel" id="telefon" name="telefon" placeholder="+41 xx xxx xx xx"/>
+              </div>
+              <div class="form-group full-width">
+                <label for="mitgliedschaft">Art der Mitgliedschaft *</label>
+                <select id="mitgliedschaft" name="mitgliedschaft" required>
+                  <option value="">Bitte wählen</option>
+                  <option value="einzel">Einzelmitglied (CHF 100.–/Jahr)</option>
+                  <option value="kollektiv">Kollektivmitglied (CHF 300.–/Jahr)</option>
+                </select>
+              </div>
+              <div class="form-group full-width">
+                <label for="bemerkungen">Bemerkungen</label>
+                <textarea id="bemerkungen" name="bemerkungen" placeholder="Allfällige Bemerkungen oder Fragen…"></textarea>
+              </div>
+            </div>
+            <div style="margin-top:1.5rem;display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;">
+              <button type="submit" style="background:var(--gold);color:white;font-family:'Inter',sans-serif;font-size:0.9rem;font-weight:600;padding:0.75rem 1.75rem;border:none;border-radius:4px;cursor:pointer;transition:background 0.2s;" onmouseover="this.style.background='#96743a'" onmouseout="this.style.background='var(--gold)'">Beitrittsgesuch einreichen</button>
+              <span style="font-size:0.8rem;color:var(--text-light);">* Pflichtfelder</span>
+            </div>
+          </form>
+        </div>
+
+        <div class="reveal" style="margin-top:2rem;">
+          <a href="#beitritt" class="btn-gold" style="display:inline-block;background:var(--gold);color:white;padding:0.7rem 1.5rem;border-radius:4px;text-decoration:none;font-weight:600;font-size:0.9rem;">Beitrittsgesuch ausfüllen</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top"><div class="footer-inner"><div class="footer-grid">
+    <div>
+      <div class="footer-brand-name">SVJ / SSDPM</div>
+      <p class="footer-desc">Schweizerische Vereinigung für Jugendstrafrechtspflege — gegründet 1931.</p>
+      <div class="footer-contact">
+        <div class="footer-contact-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="13" height="13"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Patrik Killer, Präsident SVJ<br/>Josefstrasse 59, Postfach, 8005 Zürich</span></div>
+        <div class="footer-contact-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="13" height="13"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.62 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l.77-.77a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>043 285 38 38</span></div>
+        <div class="footer-contact-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="13" height="13"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span>info@julex.ch</span></div>
+      </div>
+    </div>
+    <div><div class="footer-col-title">SVJ</div><div class="footer-links"><a href="svj-vorstand.html">Vorstand</a><a href="svj-aufgabe.html">Aufgabe</a><a href="svj-mitgliedschaft.html">Mitgliedschaft</a><a href="svj-statuten.html">Statuten</a><a href="svj-fonds.html">Fonds</a></div></div>
+    <div><div class="footer-col-title">Tagungen</div><div class="footer-links"><a href="tagung-2026.html">Tagung 2026</a><a href="tagung-archiv.html">Frühere Tagungen</a></div></div>
+    <div><div class="footer-col-title">Dienste</div><div class="footer-links"><a href="jugendstrafrecht.html">Jugendstrafrecht</a><a href="dienste-dokumente.html">Dokumente</a><a href="dienste-links.html">Links</a><a href="kontakt.html">Kontakt</a></div></div>
+  </div></div></div>
+  <div class="footer-bottom"><div class="footer-bottom-inner">
+    <div class="footer-copy">© 2026 Schweizerische Vereinigung für Jugendstrafrechtspflege (SVJ)</div>
+    <div class="footer-bottom-links"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a><a href="kontakt.html">Kontakt</a></div>
+  </div></div>
+</footer>
+<script>
+const obs = new IntersectionObserver(e => e.forEach(el => { if(el.isIntersecting) el.target.classList.add('visible'); }), {threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+const burger = document.getElementById('navHamburger');
+const overlay = document.getElementById('navOverlay');
+if(burger) burger.addEventListener('click', () => {
+  const open = overlay.classList.toggle('open');
+  burger.classList.toggle('open', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+});
+if(overlay) overlay.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  overlay.classList.remove('open'); burger.classList.remove('open'); document.body.style.overflow = '';
+}));
+</script>
+</body>
+</html>
